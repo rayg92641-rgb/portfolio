@@ -261,6 +261,8 @@ footer {
   height: 40px;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  gap: 4px;
   border: 1px solid rgba(10,37,64,0.12);
   border-radius: 10px;
   background: #fff;
@@ -269,7 +271,7 @@ footer {
 
 .menu-toggle span {
   display: block;
-  width: 20px;
+  width: 24px;
   height: 2px;
   background: #0A2540;
   border-radius: 2px;
@@ -344,6 +346,7 @@ header.open .menu-toggle span:nth-child(3) {
 @media (max-width: 900px) {
   .menu-toggle {
     display: inline-flex;
+    flex-direction: column !important;
   }
   header .site-nav {
     position: fixed;
@@ -365,6 +368,23 @@ header.open .menu-toggle span:nth-child(3) {
   header .site-nav a {
     padding: 8px 10px;
     border-radius: 8px;
+  }
+  /* ensure content is visible on mobile even if animations don't trigger */
+  .reveal [data-animate] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Ensure Projects section content is always visible across devices */
+#projects [data-animate] {
+  opacity: 1;
+  transform: none;
+}
+
+@media (max-width: 900px) {
+  #projects .project {
+    background: linear-gradient(180deg, #ffffff, #f7f9fc);
   }
 }
 
@@ -397,7 +417,7 @@ header.open .menu-toggle span:nth-child(3) {
   display: inline-flex;
   align-items: center;
   padding: 8px 12px;
-  border-radius: 999px;
+  border-radius: 10px;
   background: linear-gradient(180deg,#f7f9fc,#fff);
   border: 1px solid rgba(10,37,64,0.12);
   color: #0A2540;

@@ -15,8 +15,20 @@ document.addEventListener('DOMContentLoaded', function () {
         observer.unobserve(el);
       }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.05, rootMargin: '0px 0px -20% 0px' });
   sections.forEach(function (el) { observer.observe(el); });
+
+  // Fallback visibility for devices where IntersectionObserver triggers late
+  function ensureVisible() {
+    sections.forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight * 0.95 && r.bottom > 0) {
+        el.classList.add('in-view');
+      }
+    });
+  }
+  ensureVisible();
+  window.addEventListener('scroll', ensureVisible, { passive: true });
 
   var toggle = document.querySelector('.menu-toggle');
   var headerEl = document.querySelector('header');
