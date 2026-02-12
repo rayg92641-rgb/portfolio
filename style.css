@@ -58,11 +58,31 @@ p {
     padding-left: inherit;
   }
   
-  .project-links {
+.project-links {
   display: flex;
   gap: 20px; 
   align-items: center; 
 }
+
+.project-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #333; 
+  font-weight: 600;
+  transition: transform 0.2s;
+}
+
+.project-link:hover {
+  transform: translateY(-2px);
+}
+
+.store-icon {
+  height: 24px; 
+  width: 24px;
+  margin-right: 8px; 
+}
+
 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(12px); }
