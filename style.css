@@ -58,24 +58,6 @@ p {
     padding-left: inherit;
   }
   
-  .welcome-tag {
-  margin-bottom: 1rem;
-}
-
-.welcome-badge {
-  display: inline-block;
-  background: linear-gradient(135deg, rgba(10,37,64,0.08) 0%, rgba(10,37,64,0.12) 100%);
-  color: #0A2540;
-  font-weight: 500;
-  font-size: 0.9rem;
-  padding: 0.5rem 1.2rem;
-  border-radius: 40px;
-  border: 1px solid rgba(10,37,64,0.1);
-  backdrop-filter: blur(4px);
-  box-shadow: 0 4px 12px rgba(10,37,64,0.04);
-  letter-spacing: 0.3px;
-}
-
 .project-links {
   display: flex;
   gap: 50px; 
