@@ -251,7 +251,7 @@ header {
   position: relative;
 }
 
-.timeline-item::before {
+/* .timeline-item::before {
   content: '';
   position: absolute;
   left: -12px;
@@ -260,7 +260,7 @@ header {
   height: 2px;
   background: #0A2540;
   border-radius: 2px;
-}
+} */
 
 .timeline-item h3 {
   color: #0A2540;
