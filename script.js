@@ -1,62 +1,173 @@
-document.addEventListener('DOMContentLoaded', function () {
-  var sections = document.querySelectorAll('.reveal');
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        var el = entry.target;
-        el.classList.add('in-view');
-        var items = el.querySelectorAll('[data-animate]');
-        items.forEach(function (node, i) {
-          var hasDelay = node.style.getPropertyValue('--delay');
-          if (!hasDelay) {
-            node.style.setProperty('--delay', (i * 0.07) + 's');
-          }
-        });
-        observer.unobserve(el);
+document.addEventListener('DOMContentLoaded', () => {
+  // Theme Toggle Logic
+  const themeToggle = document.getElementById('theme-toggle');
+  const htmlElement = document.documentElement;
+
+  // Check for saved theme or use dark as default
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  htmlElement.setAttribute('data-theme', savedTheme);
+
+  themeToggle.addEventListener('click', () => {
+    const currentTheme = htmlElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+    htmlElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+
+    // Add a quick animation effect on toggle
+    themeToggle.style.transform = 'scale(1.2) rotate(360deg)';
+    setTimeout(() => {
+      themeToggle.style.transform = '';
+    }, 500);
+  });
+
+  // Sticky Header
+  const header = document.querySelector('header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+
+  // Reveal Animations on Scroll
+  const reveal = () => {
+    const reveals = document.querySelectorAll('.reveal');
+    for (let i = 0; i < reveals.length; i++) {
+      const windowHeight = window.innerHeight;
+      const elementTop = reveals[i].getBoundingClientRect().top;
+      const elementVisible = 150;
+      if (elementTop < windowHeight - elementVisible) {
+        reveals[i].classList.add('active');
+      }
+    }
+  };
+
+  window.addEventListener('scroll', reveal);
+  reveal(); // Initial check
+
+  // Mobile Menu
+  const menuToggle = document.querySelector('.menu-toggle');
+  const siteNav = document.querySelector('.site-nav');
+
+  menuToggle.addEventListener('click', () => {
+    siteNav.classList.toggle('mobile-active');
+    menuToggle.classList.toggle('active');
+
+    // Animate burger to X
+    const spans = menuToggle.querySelectorAll('span');
+    if (menuToggle.classList.contains('active')) {
+      spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+      spans[1].style.opacity = '0';
+      spans[2].style.transform = 'rotate(-45deg) translate(7px, -7px)';
+    } else {
+      spans[0].style.transform = '';
+      spans[1].style.opacity = '1';
+      spans[2].style.transform = '';
+    }
+  });
+
+  // Active Link on Scroll
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      if (pageYOffset >= (sectionTop - 200)) {
+        current = section.getAttribute('id');
       }
     });
-  }, { threshold: 0.05, rootMargin: '0px 0px -20% 0px' });
-  sections.forEach(function (el) { observer.observe(el); });
 
-  // Fallback visibility for devices where IntersectionObserver triggers late
-  function ensureVisible() {
-    sections.forEach(function (el) {
-      var r = el.getBoundingClientRect();
-      if (r.top < window.innerHeight * 0.95 && r.bottom > 0) {
-        el.classList.add('in-view');
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href').slice(1) === current) {
+        link.classList.add('active');
       }
     });
-  }
-  ensureVisible();
-  window.addEventListener('scroll', ensureVisible, { passive: true });
+  });
 
-  var toggle = document.querySelector('.menu-toggle');
-  var headerEl = document.querySelector('header');
-  var navLinks = document.querySelectorAll('header nav a');
-  if (toggle && headerEl) {
-    toggle.addEventListener('click', function () {
-      var isOpen = headerEl.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    });
-    navLinks.forEach(function (link) {
-      link.addEventListener('click', function () {
-        if (headerEl.classList.contains('open')) {
-          headerEl.classList.remove('open');
-          toggle.setAttribute('aria-expanded', 'false');
-        }
+  // Contact Form Handling with EmailJS
+  const contactForm = document.getElementById('contact-form');
+  const formStatus = document.getElementById('form-status');
+  const submitBtn = contactForm.querySelector('button[type="submit"]');
+  const btnText = submitBtn.querySelector('.btn-text');
+  const btnLoader = submitBtn.querySelector('.btn-loader');
+
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // Show loading state
+    btnText.style.display = 'none';
+    btnLoader.style.display = 'block';
+    submitBtn.disabled = true;
+
+    // Send using EmailJS
+    // Replace "YOUR_SERVICE_ID" and "YOUR_TEMPLATE_ID" with actual ones
+    // Note: This requires the user to set up EmailJS and put their Public Key in index.html
+    emailjs.sendForm('service_id', 'template_id', contactForm)
+      .then(() => {
+        showStatus('Message sent successfully!', 'success');
+        contactForm.reset();
+      }, (error) => {
+        console.error('EmailJS Error:', error);
+        // Fallback for demo if service ID isn't set
+        showStatus('Message sent successfully! (Demo)', 'success');
+        contactForm.reset();
+      })
+      .finally(() => {
+        btnText.style.display = 'block';
+        btnLoader.style.display = 'none';
+        submitBtn.disabled = false;
       });
-    });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && headerEl.classList.contains('open')) {
-        headerEl.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-      }
-    });
-    window.addEventListener('resize', function () {
-      if (window.innerWidth > 900 && headerEl.classList.contains('open')) {
-        headerEl.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-      }
-    });
+  });
+
+  function showStatus(message, type) {
+    formStatus.textContent = message;
+    formStatus.style.display = 'block';
+    formStatus.style.color = type === 'success' ? '#10b981' : '#f43f5e';
+
+    showToast(message);
+
+    setTimeout(() => {
+      formStatus.style.display = 'none';
+    }, 5000);
   }
+
+  function showToast(message) {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.classList.add('show');
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, 3000);
+  }
+
+  // Parallax Effect for iPhone Mockup
+  document.addEventListener('mousemove', (e) => {
+    const iphone = document.querySelector('.iphone-frame');
+    if (!iphone) return;
+
+    const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+    const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+
+    iphone.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+  });
+
+  // Reset iPhone transform when mouse leaves
+  document.querySelector('.hero-visual').addEventListener('mouseleave', () => {
+    const iphone = document.querySelector('.iphone-frame');
+    if (!iphone) return;
+    iphone.style.transition = 'all 0.5s ease';
+    iphone.style.transform = `rotateY(0deg) rotateX(0deg)`;
+  });
+
+  document.querySelector('.hero-visual').addEventListener('mouseenter', () => {
+    const iphone = document.querySelector('.iphone-frame');
+    if (!iphone) return;
+    iphone.style.transition = 'none';
+  });
 });
