@@ -18,10 +18,13 @@
   <link rel="icon" type="image/png" href="assets/images/metaprofile.png" />
 
   <!-- EmailJS -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script type="text/javascript">
     (function() {
-      emailjs.init("YOUR_PUBLIC_KEY"); // User will need to replace this or I can suggest it
+      // Nayi Public Key yahan update kar di gayi hai
+      emailjs.init({
+        publicKey: "DphkarqAnFmHYBtud",
+      });
     })();
   </script>
 
@@ -47,6 +50,8 @@
         <a href="#home" class="nav-link active">Home</a>
         <a href="#about" class="nav-link">About</a>
         <a href="#skills" class="nav-link">Skills</a>
+        <a href="#education" class="nav-link">Education</a>
+        <a href="#experience" class="nav-link">Experience</a>
         <a href="#projects" class="nav-link">Projects</a>
         <a href="#contact" class="nav-link nav-cta">Let's Talk</a>
       </nav>
@@ -124,17 +129,21 @@
                     </div>
                   </div>
                   <div class="iphone-app-grid">
-                    <div class="app-item"></div>
-                    <div class="app-item"></div>
-                    <div class="app-item"></div>
-                    <div class="app-item"></div>
+                    <div class="app-item flutter"><i class="fa-brands fa-flutter"></i></div>
+                    <div class="app-item firebase"><i class="fa-solid fa-fire"></i></div>
+                    <div class="app-item github"><i class="fa-brands fa-github"></i></div>
+                    <div class="app-item dart"><i class="fa-solid fa-code"></i></div>
                   </div>
                 </div>
               </div>
               <div class="iphone-button"></div>
             </div>
-            <div class="floating-element flutter-logo"><i class="fa-brands fa-flutter"></i></div>
-            <div class="floating-element dart-logo"><i class="fa-solid fa-rocket"></i></div>
+            <div class="floating-element flutter-logo">
+              <img src="https://cdn.simpleicons.org/flutter/02569B" alt="Flutter" style="width: 40px; height: 40px; object-fit: contain;">
+            </div>
+            <div class="floating-element dart-logo">
+              <img src="https://cdn.simpleicons.org/dart/0175C2" alt="Dart" style="width: 40px; height: 40px; object-fit: contain;">
+            </div>
           </div>
         </div>
       </div>
@@ -196,93 +205,168 @@
         <div class="skills-grid grid-dynamic">
           <!-- 1. Flutter -->
           <div class="skill-card glass reveal-child" data-label="App">
-            <i class="fa-brands fa-flutter"></i>
+            <img src="https://cdn.simpleicons.org/flutter/02569B" alt="Flutter">
             <h4>Flutter</h4>
             <span>(Android & iOS)</span>
           </div>
           <!-- 2. Dart -->
           <div class="skill-card glass reveal-child" data-label="Language">
-            <i class="fa-solid fa-code"></i>
+            <img src="https://cdn.simpleicons.org/dart/0175C2" alt="Dart">
             <h4>Dart</h4>
             <span>Programming</span>
           </div>
           <!-- 3. State Management -->
           <div class="skill-card glass reveal-child" data-label="State">
-            <i class="fa-solid fa-diagram-project"></i>
+            <img src="https://cdn.simpleicons.org/redux/764ABC" alt="State Management">
             <h4>State Management</h4>
             <span>(GetX, Provider, Bloc)</span>
           </div>
           <!-- 4. REST API Integration -->
           <div class="skill-card glass reveal-child" data-label="API">
-            <i class="fa-solid fa-gears"></i>
+            <img src="https://cdn.simpleicons.org/postman/FF6C37" alt="REST API">
             <h4>REST API</h4>
             <span>Integration</span>
           </div>
           <!-- 5. Firebase -->
           <div class="skill-card glass reveal-child" data-label="Backend">
-            <i class="fa-solid fa-cloud"></i>
+            <img src="https://cdn.simpleicons.org/firebase/FFCA28" alt="Firebase">
             <h4>Firebase</h4>
             <span>(Auth, FCM, Firestore, Crashlytics)</span>
           </div>
           <!-- 6. Realtime Chat & Calling -->
           <div class="skill-card glass reveal-child" data-label="Realtime">
-            <i class="fa-solid fa-comments"></i>
+            <img src="https://cdn.simpleicons.org/wechat/09B83E" alt="Realtime">
             <h4>Realtime Chat &</h4>
             <span>Voice/Video Calling</span>
           </div>
           <!-- 7. Payment Gateways -->
           <div class="skill-card glass reveal-child" data-label="Payments">
-            <i class="fa-solid fa-credit-card"></i>
+            <img src="https://cdn.simpleicons.org/razorpay/3395FF" alt="Payments">
             <h4>Payment Gateways</h4>
             <span>(Razorpay, Phone pay, PAYU)</span>
           </div>
           <!-- 8. Performance Optimization -->
           <div class="skill-card glass reveal-child" data-label="Optimize">
-            <i class="fa-solid fa-gauge-high"></i>
+            <img src="https://cdn.simpleicons.org/speedtest/31A8FF" alt="Performance">
             <h4>App Performance</h4>
             <span>Optimization</span>
           </div>
           <!-- 9. Local Storage -->
           <div class="skill-card glass reveal-child" data-label="Storage">
-            <i class="fa-solid fa-database"></i>
+            <img src="https://cdn.simpleicons.org/sqlite/003B57" alt="SQLite">
             <h4>Local Storage</h4>
             <span>(Sqflite, Hive, SharedPreferences)</span>
           </div>
           <!-- 10. Push Notifications -->
           <div class="skill-card glass reveal-child" data-label="Cloud">
-            <i class="fa-solid fa-bell"></i>
+            <img src="https://cdn.simpleicons.org/firebase/FFCA28" alt="FCM">
             <h4>Push</h4>
             <span>Notifications</span>
           </div>
           <!-- 11. VCS -->
           <div class="skill-card glass reveal-child" data-label="VCS">
-            <i class="fa-brands fa-git-alt"></i>
+            <img src="https://cdn.simpleicons.org/github/181717" alt="GitHub">
             <h4>Git, GitHub &</h4>
             <span>Version Control</span>
           </div>
           <!-- 12. Deployment -->
           <div class="skill-card glass reveal-child" data-label="DevOps">
-            <i class="fa-solid fa-rocket"></i>
+            <img src="https://cdn.simpleicons.org/googleplay/41E0FD" alt="Play Store">
             <h4>Play Store & App</h4>
             <span>Store Deployment</span>
           </div>
           <!-- 13. Google API Integration -->
           <div class="skill-card glass reveal-child" data-label="Google">
-            <i class="fa-brands fa-google"></i>
+            <img src="https://cdn.simpleicons.org/google/4285F4" alt="Google">
             <h4>Google Api</h4>
-            <span>Intergation</span>
+            <span>Integration</span>
           </div>
           <!-- 14. AI Module Integration -->
           <div class="skill-card glass reveal-child" data-label="AI">
-            <i class="fa-solid fa-brain"></i>
+            <img src="https://img.icons8.com/fluency/96/brain--v1.png" alt="AI">
             <h4>AI Module Key</h4>
-            <span>Intergation</span>
+            <span>Integration</span>
           </div>
           <!-- 15. Astrology API Integration -->
           <div class="skill-card glass reveal-child" data-label="Niche">
-            <i class="fa-solid fa-star-and-crescent"></i>
+            <img src="https://cdn-icons-png.flaticon.com/512/3924/3924420.png" alt="Astrology">
             <h4>Astrology Api</h4>
-            <span>Intergation</span>
+            <span>Integration</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section section-padding reveal">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="title">Education</h2>
+        </div>
+        <div class="education-grid">
+          <!-- MCA -->
+          <div class="edu-card glass reveal-child">
+            <div class="edu-icon">
+              <img src="assets/images/cuicon.png" alt="Chandigarh University">
+            </div>
+            <div class="edu-content">
+              <h3>Master of Computer Applications</h3>
+              <span class="edu-university">Chandigarh University, Mohali</span>
+              <span class="edu-date">09/2024 – 08/2026</span>
+              <div class="edu-courses">Full Stack Development</div>
+            </div>
+          </div>
+
+          <!-- Graduation -->
+          <div class="edu-card glass reveal-child">
+            <div class="edu-icon">
+              <img src="assets/images/brbhu.png" alt="BRABU">
+            </div>
+            <div class="edu-content">
+              <h3>Graduation (BA Honours)</h3>
+              <span class="edu-university">B.R.A.B.U University, Bihar</span>
+              <span class="edu-date">03/2020 – 03/2023</span>
+              <div class="edu-courses">Geography Honours</div>
+            </div>
+          </div>
+
+          <!-- ADCA -->
+          <div class="edu-card glass reveal-child">
+            <div class="edu-icon">
+              <i class="fa-solid fa-laptop-code"></i>
+            </div>
+            <div class="edu-content">
+              <h3>ADCA (Advanced Diploma)</h3>
+              <span class="edu-university">Vedant Computer Academy</span>
+              <span class="edu-date">04/2018 – 04/2019</span>
+              <div class="edu-courses">External Education</div>
+            </div>
+          </div>
+
+          <!-- 12th -->
+          <div class="edu-card glass reveal-child">
+            <div class="edu-icon">
+              <img src="assets/images/bseb.png" alt="BSEB">
+            </div>
+            <div class="edu-content">
+              <h3>12th (Intermediate)</h3>
+              <span class="edu-university">Jagdam College, Chapra</span>
+              <span class="edu-date">02/2018 – 02/2020</span>
+              <div class="edu-courses">Science/Arts Streams</div>
+            </div>
+          </div>
+
+          <!-- 10th -->
+          <div class="edu-card glass reveal-child">
+            <div class="edu-icon">
+              <img src="assets/images/bseb.png" alt="BSEB">
+            </div>
+            <div class="edu-content">
+              <h3>10th (Matriculation)</h3>
+              <span class="edu-university">G.N.S High School, Saran</span>
+              <span class="edu-date">02/2016 – 02/2018</span>
+              <div class="edu-courses">General Studies</div>
+            </div>
           </div>
         </div>
       </div>
@@ -296,49 +380,80 @@
         </div>
         <div class="modern-timeline">
           <!-- Current Organization -->
-          <div class="timeline-card glass reveal-child">
-            <div class="time-meta">
-              <span class="date">2025 – Present</span>
-              <span class="company" style="color: var(--primary); font-weight: 800;">Current Organization</span>
-            </div>
-            <div class="content">
-              <h3><i class="fa-solid fa-briefcase" style="margin-right: 10px; color: var(--primary);"></i> WAYPRO PRIVATE LIMITED</h3>
-              <ul>
-                <li><strong>Role:</strong> Senior Flutter Developer</li>
-                <li>Architecting robust enterprise-grade mobile solutions with a focus on scalability and modular design.</li>
-                <li>Leading cross-platform development for complex business logic and high-performance applications.</li>
-              </ul>
+          <div class="timeline-card reveal-child">
+            <div class="timeline-content-inner">
+              <div class="time-meta">
+                <div class="date-row">
+                  <span class="date">2025 – Present</span>
+                  <span class="status-badge">Present</span>
+                </div>
+                <h3 class="company-name">WAYPRO PRIVATE LIMITED</h3>
+                <div class="location"><i class="fa-solid fa-location-dot"></i> Noida, India (Hybrid)</div>
+              </div>
+              <div class="role-badge">Senior Flutter Developer</div>
+              <div class="content">
+                <ul>
+                  <li><i class="fa-solid fa-circle-check"></i> Architecting robust enterprise-grade mobile solutions with a focus on scalability and modular design.</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Leading cross-platform development for complex business logic and high-performance applications.</li>
+                </ul>
+                <div class="tech-stack-mini">
+                  <span class="tech-tag-sm">Flutter</span>
+                  <span class="tech-tag-sm">Dart</span>
+                  <span class="tech-tag-sm">Clean Architecture</span>
+                  <span class="tech-tag-sm">CI/CD</span>
+                </div>
+              </div>
             </div>
           </div>
           <!-- Previous Organization 1 -->
-          <div class="timeline-card glass reveal-child">
-            <div class="time-meta">
-              <span class="date">Nov 2024 – 2025</span>
-              <span class="company">Previous Organization</span>
-            </div>
-            <div class="content">
-              <h3><i class="fa-solid fa-building" style="margin-right: 10px; color: var(--secondary);"></i> Jaimru Technology Pvt Ltd</h3>
-              <ul>
-                <li><strong>Role:</strong> Flutter Developer</li>
-                <li>Spearheaded the development of intuitive and visually stunning mobile applications.</li>
-                <li>Optimized app responsiveness and integrated complex state management patterns using Bloc and GetX.</li>
-              </ul>
+          <div class="timeline-card reveal-child">
+            <div class="timeline-content-inner">
+              <div class="time-meta">
+                <div class="date-row">
+                  <span class="date">Nov 2024 – 2025</span>
+                </div>
+                <h3 class="company-name">Jaimru Technology Pvt Ltd</h3>
+                <div class="location"><i class="fa-solid fa-location-dot"></i> Greater Noida, India</div>
+              </div>
+              <div class="role-badge">Flutter Developer</div>
+              <div class="content">
+                <ul>
+                  <li><i class="fa-solid fa-circle-check"></i> Spearheaded the development of intuitive and visually stunning mobile applications.</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Optimized app responsiveness and integrated complex state management patterns using Bloc and GetX.</li>
+                </ul>
+                <div class="tech-stack-mini">
+                  <span class="tech-tag-sm">GetX</span>
+                  <span class="tech-tag-sm">Bloc</span>
+                  <span class="tech-tag-sm">Figma to Code</span>
+                  <span class="tech-tag-sm">Responsive UI</span>
+                </div>
+              </div>
             </div>
           </div>
           <!-- Previous Organization 2 -->
-          <div class="timeline-card glass reveal-child">
-            <div class="time-meta">
-              <span class="date">Feb 2022 – Nov 2024</span>
-              <span class="company">Previous Organization</span>
-            </div>
-            <div class="content">
-              <h3><i class="fa-solid fa-laptop-code" style="margin-right: 10px; color: var(--accent);"></i> Indev Consultancy Private Limited</h3>
-              <ul>
-                <li><strong>Role:</strong> Mobile App Developer</li>
-                <li>Core contributor to large-scale mobile platforms for government health systems and NGO projects.</li>
-                <li>Specialized in secure REST API integrations, Firebase backend services, and real-time data sync.</li>
-                <li>Managed end-to-end release cycles and deployment to Play Store and App Store.</li>
-              </ul>
+          <div class="timeline-card reveal-child">
+            <div class="timeline-content-inner">
+              <div class="time-meta">
+                <div class="date-row">
+                  <span class="date">Feb 2022 – Nov 2024</span>
+                </div>
+                <h3 class="company-name">Indev Consultancy Private Limited</h3>
+                <div class="location"><i class="fa-solid fa-location-dot"></i> New Delhi, India</div>
+              </div>
+              <div class="role-badge">Mobile App Developer</div>
+              <div class="content">
+                <ul>
+                  <li><i class="fa-solid fa-circle-check"></i> Core contributor to large-scale mobile platforms for government health systems and NGO projects.</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Specialized in secure REST API integrations, Firebase backend services, and real-time data sync.</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Managed end-to-end release cycles and deployment to Play Store and App Store.</li>
+                </ul>
+                <div class="tech-stack-mini">
+                  <span class="tech-tag-sm">Firebase</span>
+                  <span class="tech-tag-sm">REST API</span>
+                  <span class="tech-tag-sm">Google Maps</span>
+                  <span class="tech-tag-sm">App Store</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -349,14 +464,13 @@
     <section id="projects" class="section section-padding reveal">
       <div class="container">
         <div class="section-header">
-          <span class="sub-title">Portfolio</span>
           <h2 class="title">Live Completed Projects</h2>
         </div>
         <div class="projects-container">
           <!-- Project Card 1 -->
           <div class="project-item card glass reveal-child">
             <div class="project-image-placeholder">
-              <i class="fa-solid fa-notes-medical"></i>
+              <img src="assets/images/afhc.png" alt="AFHC App">
             </div>
             <div class="project-body">
               <div class="project-tags">
@@ -383,7 +497,7 @@
           <!-- Project Card 2 -->
           <div class="project-item card glass reveal-child">
             <div class="project-image-placeholder">
-              <i class="fa-solid fa-leaf"></i>
+              <img src="assets/images/greenPlanate.png" alt="Our Green Planet">
             </div>
             <div class="project-body">
               <div class="project-tags">
@@ -407,7 +521,7 @@
           <!-- Project Card 3 -->
           <div class="project-item card glass reveal-child">
             <div class="project-image-placeholder">
-              <i class="fa-solid fa-video"></i>
+              <img src="assets/images/talentshorts.png" alt="Talent Shorts">
             </div>
             <div class="project-body">
               <div class="project-tags">
@@ -427,6 +541,84 @@
               </div>
             </div>
           </div>
+
+          <!-- Project Card 4 -->
+          <div class="project-item card glass reveal-child">
+            <div class="project-image-placeholder">
+              <img src="assets/images/jaimrutext.png" alt="Jaimru Text">
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="tag">Flutter</span>
+                <span class="tag">Firebase</span>
+                <span class="tag">REST APIs</span>
+                <span class="tag">Business Messaging</span>
+              </div>
+              <h3>Jaimru Text – Business Messaging</h3>
+              <p>
+                A professional messaging application designed for businesses to communicate with clients securely.
+                Features pre-defined templates and a familiar chat interface for efficient interaction.
+              </p>
+              <div class="project-actions">
+                <a href="https://play.google.com/store/apps/details?id=com.jaimru.jaimrutext" target="_blank" class="btn btn-sm glass-btn">
+                  <i class="fa-brands fa-google-play"></i> Google Play
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Card 5 -->
+          <div class="project-item card glass reveal-child">
+            <div class="project-image-placeholder">
+              <img src="assets/images/advisor.png" alt="NHI Advisor">
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="tag">Flutter</span>
+                <span class="tag">Agora (Voice/Video)</span>
+                <span class="tag">Real-Time Chat</span>
+                <span class="tag">Consultation</span>
+              </div>
+              <h3>NHI Advisor – Smart Consultation Platform</h3>
+              <p>
+                A comprehensive advisory platform connecting users with professional experts.
+                Featuring real-time chat, high-quality voice/video calls via Agora, and seamless notification handling.
+              </p>
+              <div class="project-actions">
+                <a href="https://play.google.com/store/apps/details?id=com.dp.advisor" target="_blank" class="btn btn-sm glass-btn">
+                  <i class="fa-brands fa-google-play"></i> Google Play
+                </a>
+                <a href="https://apps.apple.com/my/app/nhi-advisor/id6760292554" target="_blank" class="btn btn-sm glass-btn">
+                  <i class="fa-brands fa-apple"></i> App Store
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Card 6 -->
+          <div class="project-item card glass reveal-child">
+            <div class="project-image-placeholder">
+              <img src="assets/images/SublimeSell.png" alt="Sublime App">
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="tag">Flutter</span>
+                <span class="tag">E-Commerce</span>
+                <span class="tag">Firebase</span>
+                <span class="tag">REST APIs</span>
+              </div>
+              <h3>Sublime – Home Decor & Furniture Shop</h3>
+              <p>
+                A premium e-commerce platform for curated home décor and furniture.
+                Features an advanced product catalog, secure checkout, wishlist functionality, and real-time order tracking.
+              </p>
+              <div class="project-actions">
+                <a href="https://play.google.com/store/apps/details?id=com.dp.sublime" target="_blank" class="btn btn-sm glass-btn">
+                  <i class="fa-brands fa-google-play"></i> Google Play
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -435,7 +627,6 @@
     <section id="contact" class="section section-padding reveal">
       <div class="container">
         <div class="section-header">
-          <span class="sub-title">Connect</span>
           <h2 class="title">Get In Touch</h2>
         </div>
         <div class="contact-grid">
@@ -443,11 +634,11 @@
             <h3>Let's build something amazing together.</h3>
             <p>I am currently open to new opportunities and freelance projects.</p>
             <div class="contact-list">
-              <a href="mailto:govindaray2004@gmail.com" class="contact-item glass reveal-child">
+              <a href="mailto:rayg92641@gmail.com" class="contact-item glass reveal-child">
                 <div class="icon"><i class="fa-solid fa-envelope"></i></div>
                 <div class="text">
                   <span>Email</span>
-                  <strong>govindaray2004@gmail.com</strong>
+                  <strong>rayg92641@gmail.com</strong>
                 </div>
               </a>
               <a href="https://linkedin.com/in/govinda-ray-078734278" target="_blank" class="contact-item glass reveal-child">
@@ -475,6 +666,10 @@
             <div class="form-group">
               <label for="email">Your Email</label>
               <input type="email" id="email" name="user_email" placeholder="john@example.com" required>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="title" placeholder="Project Inquiry" required>
             </div>
             <div class="form-group">
               <label for="message">Your Message</label>

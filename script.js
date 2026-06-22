@@ -105,18 +105,21 @@ document.addEventListener('DOMContentLoaded', () => {
     btnLoader.style.display = 'block';
     submitBtn.disabled = true;
 
-    // Send using EmailJS
-    // Replace "YOUR_SERVICE_ID" and "YOUR_TEMPLATE_ID" with actual ones
-    // Note: This requires the user to set up EmailJS and put their Public Key in index.html
-    emailjs.sendForm('service_id', 'template_id', contactForm)
+    // IMPORTANT: In 3 values ko apne EmailJS Dashboard se verify karke yahan likhein
+    const SERVICE_ID = 'service_u9mx00o'; // Dashboard -> Email Services tab se copy karein
+    const TEMPLATE_ID = 'template_pa00aei';
+    const PUBLIC_KEY = 'DphkarqAnFmHYBtud';
+
+    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, contactForm, {
+        publicKey: PUBLIC_KEY,
+      })
       .then(() => {
         showStatus('Message sent successfully!', 'success');
         contactForm.reset();
       }, (error) => {
-        console.error('EmailJS Error:', error);
-        // Fallback for demo if service ID isn't set
-        showStatus('Message sent successfully! (Demo)', 'success');
-        contactForm.reset();
+        console.error('EmailJS Error Details:', error);
+        // Agar "Account not found" aata hai, toh PUBLIC_KEY galat hai
+        showStatus(`Error: ${error.text || 'Failed to send'}`, 'error');
       })
       .finally(() => {
         btnText.style.display = 'block';
