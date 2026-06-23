@@ -283,8 +283,8 @@ header.scrolled {
   backdrop-filter: blur(15px);
   border-top: 1px solid var(--glass-border);
   border-bottom: 1px solid var(--glass-border);
-  padding: 1.2rem 0;
-  margin-bottom: 5rem; /* Space below ticker */
+  padding: 0.6rem 0;
+  margin-bottom: 3rem; /* Space below ticker */
   z-index: 5;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
@@ -299,8 +299,8 @@ header.scrolled {
 
 .ticker-content span {
   display: inline-block;
-  padding: 0 3rem;
-  font-size: 1.1rem;
+  padding: 0 2rem;
+  font-size: 0.85rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.15em;
@@ -498,14 +498,14 @@ header.scrolled {
 
 .iphone-os-icons {
   display: flex;
-  gap: 30px;
+  gap: 15px;
   justify-content: center;
-  margin-top: 80px;
+  margin-top: 40px;
 }
 
 .iphone-os-icons img {
-  width: 90px;
-  height: 90px;
+  width: 40px;
+  height: 40px;
   object-fit: contain;
   filter: none;
   opacity: 1;
@@ -522,6 +522,7 @@ header.scrolled {
   grid-template-columns: repeat(4, 1fr);
   gap: 15px;
   padding: 20px;
+  padding-bottom: 40px;
   background: rgba(0,0,0,0.05);
 }
 
