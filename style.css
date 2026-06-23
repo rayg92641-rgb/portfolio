@@ -1270,9 +1270,47 @@ footer {
 .footer-bottom {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   color: var(--text-muted);
   font-size: 0.9rem;
   font-weight: 600;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.visitor-counter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--glass-bg);
+  padding: 0.4rem 1rem;
+  border-radius: 2rem;
+  border: 1px solid var(--glass-border);
+}
+
+.visitor-counter i {
+  color: var(--primary);
+  font-size: 0.9rem;
+}
+
+.visitor-text {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.count-badge {
+  overflow: hidden;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+}
+
+.count-badge img {
+  height: 20px;
+  margin-left: -33px; /* Hide the "hits" title part of the badge */
+  display: block;
 }
 
 /* Education Section */
